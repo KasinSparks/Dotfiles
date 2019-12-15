@@ -1,21 +1,22 @@
 #!/bin/bash
 
+## Author: Kasin Sparks
+## Date: 14 DEC 2019
+## Objective: A program to fetch and output the GPU temp
+
 maxWarningTemp=90
 middleWarningTemp=70
 
 #command nvidia-smi -q -d TEMPERATURE | grep 'GPU Current Temp' | cut -d ':' -f 2 | cut -d ' ' -f 2 | cat >> ~/.scripts/gpu_temp
 curTemp=$(nvidia-smi -q -d TEMPERATURE | grep 'GPU Current Temp' | cut -d ':' -f 2 | cut -d ' ' -f 2)
 
-temperature="echo -e "
+echo ${curTemp}°C
+echo
 
 if [[ $curTemp -gt $maxWarningTemp ]]; then
-	temperature="${temperature}'\033[0;31m'"
+	echo \#FF0000	
 elif [[ $curTemp -gt $middleWarningTemp ]]; then
-	temperature="${temperature}'\033[1;33m'" 
+	echo \#FFFF00
 else
-	temperature="${temperature}'\033[1;32m'" 
+	echo \#00FF00
 fi
-
-temperature="${temperature}${curTemp}"
-
-eval $temperature
