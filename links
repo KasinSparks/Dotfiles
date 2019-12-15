@@ -1,10 +1,11 @@
 .fehbg ./ ~/
 config ./i3/ ~/.config/i3/
 config ./i3blocks/ ~/.config/i3blocks/
-colortest.sh .scripts/ ~/.scrips/
-gpuTempDisplay ./i3blocks /usr/share/i3blocks/
-iface ./i3blocks /usr/share/i3blocks/
-temperature ./i3blocks /usr/share/i3blocks/
-time ./i3blocks /usr/share/i3blocks/
-volume-pulseaudio ./i3blocks /usr/share/i3blocks/
+colortest.sh .scripts/ ~/.scripts/
+gpuTempDisplay ./i3blocks/ ~/.config/i3blocks/scripts/
+iface ./i3blocks/ ~/.config/i3blocks/scripts/
+temperature ./i3blocks/ ~/.config/i3blocks/scripts/
+time ./i3blocks/ ~/.config/i3blocks/scripts/
+volume-pulseaudio ./i3blocks/ ~/.config/i3blocks/scripts/
 .zshrc ./zsh/ ~/
+.vimrc ./ ~/

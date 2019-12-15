@@ -16,6 +16,9 @@ FILE=(`cat "./links"`)
 # The file ending for the backup files
 BACKUPENDING="bak"
 
+# Home dir
+HOMEDIR='/home/$(whoami)/'
+
 # Print the string arg if VERBOSE is enabled
 function verbosePrint(){
     if [[ $VERBOSE == 1 ]]; then
@@ -111,6 +114,10 @@ function main(){
     for line in ${FILE[@]}; do
         # If the item is empty ignore it, else add it the array
         if [[ -n $line ]]; then
+            # Check for ~/ in string
+            if [[ ${line:0:2} == '~/' ]]; then
+                line="/home/$(whoami)/${line:2:${#line}}"
+            fi
             commandArr[count]=$line
             count=$(($count + 1))
         fi
@@ -132,6 +139,8 @@ function main(){
             for i in {0..2}; do
                 commandArr[i]=''
             done
+            
+            count=0
         fi
     done 
 }
