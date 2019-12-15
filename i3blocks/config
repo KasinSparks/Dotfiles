@@ -24,7 +24,7 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/share/i3blocks/$BLOCK_NAME
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
@@ -32,10 +32,11 @@ markup=none
 #
 # This displays "ARTIST - SONG" if a music is playing.
 # Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-[mymediaplayer]
+#[mymediaplayer]
 #instance=spotify
-label=🎵
-interval=10
+#label=Media
+#label=🎵
+#interval=10
 #signal=10
 
 # Volume indicator
@@ -43,13 +44,13 @@ interval=10
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-[volume]
+[volume-pulseaudio]
 #label=VOL
 label=🔊
-instance=Master
+#instance=Master
 #instance=PCM
 interval=once
-signal=10
+signal=1
 
 # Memory usage
 #
@@ -81,14 +82,15 @@ signal=10
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
 #instance=wlan0
+#label=Internet
 label=📡
 color=#00FF00
 interval=10
 #separator=false
 
-#[wifi]
-#instance=wlp3s0
-#interval=10
+[wifi]
+instance=wlp3s0
+interval=10
 #separator=false
 
 #[bandwidth]
@@ -112,9 +114,11 @@ interval=10
 # see the script for details.
 [temperature]
 label=CPU🌡
+#label=CPU
 interval=10
 
 [gpuTempDisplay]
+#label=GPU
 label=GPU🌡
 #command=gpuTempDisplay
 interval=10
@@ -134,6 +138,7 @@ interval=10
 # Date Time
 #
 [time]
+#label=Time:
 label=📅
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=5
