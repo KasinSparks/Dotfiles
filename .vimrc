@@ -63,3 +63,5 @@ set noexpandtab
 "set fileencoding=utf-8
 "set fileencodings=ucs-bom,utf8,prc
 
+" Set syntax highlighting to on
+syntax on
