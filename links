@@ -9,3 +9,4 @@ time ./i3blocks/ ~/.config/i3blocks/scripts/
 volume-pulseaudio ./i3blocks/ ~/.config/i3blocks/scripts/
 .zshrc ./zsh/ ~/
 .vimrc ./ ~/
+.Xdefaults ./ ~/

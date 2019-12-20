@@ -5,10 +5,13 @@
 ## Objective: A program to automatically symlink dotfile to respective locations
 
 # Version
-VERSION=0.0.1
+VERSION=0.0.2
 
 # Set 1 for for debug messages, 0 for OFF
 VERBOSE=1
+
+# Set 1 for force, 0 of non-force
+FORCE=0
 
 # The file with the links
 FILE=(`cat "./links"`)
@@ -34,7 +37,10 @@ function printHelp(){
             -h | --help: Display this message.
             -s | --silent: Non-verbose mode.
             -r | --revert: remove symlinks and change files to .bak files.
-            -v | --version: Display the version."
+            -v | --version: Display the version.
+            -f | --force: Do not ask permission to replace .bak files
+				 
+                --remove: Remove the symlink, but not the .bak files. Try not to use this command."
 }
 
 # If file exist, return 1, else 0
@@ -89,12 +95,16 @@ function symLink(){
 
     # Check if a .bak file already exist
     if checkForFileExistance $linkFile.$BACKUPENDING; then
-        # Ask user to override
-        echo -n "Override existing $linkFile.$BACKUPENDING? [y/n]: "
-        read ans
-        if [[ "$ans" == "y" ]]; then
-            createFileBackup $linkFile
-        fi
+		if [[ FORCE == 0 ]]; then
+			# Ask user to override
+			echo -n "Override existing $linkFile.$BACKUPENDING? [y/n]: "
+			read ans
+			if [[ "$ans" == "y" ]]; then
+				createFileBackup $linkFile
+			fi
+		else
+			createFileBackup $linkFile
+		fi
     elif checkForFileExistance $linkFile; then
         verbosePrint "$linkFile already exist, creating backup then proceeding."
         createFileBackup $linkFile
@@ -164,6 +174,8 @@ for arg in $@; do
             main "remove"
             echo "DONE."
             exit
+		elif [[ $arg == "-f" || $arg == "--force" ]]; then
+			FORCE=1
         else
             printHelp
             exit
