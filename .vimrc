@@ -14,6 +14,8 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'file:///home/kasin/.vim/bundle/YouCompleteMe'
 Plugin 'ycm-core/YouCompleteMe'
 
+Plugin 'vim-latex/vim-latex'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
