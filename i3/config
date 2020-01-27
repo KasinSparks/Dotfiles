@@ -35,7 +35,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id ~/.fehbg
 
 # Set right moniter to right orientation
-exec --no-startup-id xrandr --output HDMI-0 --rotate right
+#exec --no-startup-id xrandr --output HDMI-0 --rotate right
 
 # Use pactl to adjust volume in PulseAudio.
 #set $refresh_i3status killall -SIGUSR1 i3status
@@ -191,3 +191,6 @@ bar {
 # Set the gaps
 gaps inner 7
 gaps outer 7
+
+# Set the border to 0
+default_border none 
