@@ -18,5 +18,7 @@ if [[ $curTemp -gt $maxWarningTemp ]]; then
 elif [[ $curTemp -gt $middleWarningTemp ]]; then
 	echo \#FFFF00
 else
-	echo \#00FF00
+	#echo \#00FF00
+	#echo \#80B1FF
+	echo \#FFFFFF
 fi

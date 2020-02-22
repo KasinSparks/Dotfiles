@@ -39,26 +39,34 @@ markup=none
 #interval=10
 #signal=10
 
-# Volume indicator
+[docker]
+#color=#0db7ed
+color=#80B1FF
+interval=30
+LABEL=🐳 
+
+
+# Disk usage
 #
-# The first parameter sets the step (and units to display)
-# The second parameter overrides the mixer selection
-# See the script for details.
-[volume-pulseaudio]
-#label=VOL
-label=🔊
-#instance=Master
-#instance=PCM
-interval=once
-signal=1
+# The directory defaults to $HOME if the instance is not specified.
+# The script may be called with a optional argument to set the alert
+# (defaults to 10 for 10%).
+[disk]
+label=<span color="#80B1FF"><i>HOME </i></span>
+markup=pango
+#instance=/
+interval=30
+separator=false
+
 
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-#[memory]
-#label=MEM
-#separator=false
-#interval=30
+[memory]
+label=<span color="#80b1ff"><i>MEM</i></span>
+separator=false
+interval=30
+markup=pango
 
 #[memory]
 #label=SWAP
@@ -66,31 +74,11 @@ signal=1
 #separator=false
 #interval=30
 
-# Disk usage
-#
-# The directory defaults to $HOME if the instance is not specified.
-# The script may be called with a optional argument to set the alert
-# (defaults to 10 for 10%).
-#[disk]
-#label=HOME
-#instance=/mnt/data
-#interval=30
 
-# Network interface monitoring
-#
-# If the instance is not specified, use the interface used for default route.
-# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
-#instance=wlan0
-#label=Internet
-label=📡
-color=#00FF00
-interval=10
-#separator=false
 
-[wifi]
-instance=wlp3s0
-interval=10
+#[wifi]
+#instance=wlp3s0
+#interval=10
 #separator=false
 
 #[bandwidth]
@@ -104,6 +92,9 @@ interval=10
 #[cpu_usage]
 #label=CPU
 #interval=10
+#T_WARN=50
+#T_CRIT=80
+#DECIMALS=2
 #min_width=CPU: 100.00%
 #separator=false
 
@@ -113,13 +104,16 @@ interval=10
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [temperature]
-label=CPU🌡
-#label=CPU
+#label=CPU🌡
+label=<span color="#80B1FF"><i>CPU </i></span>
+markup=pango
 interval=10
+separator=false
 
 [gpuTempDisplay]
-#label=GPU
-label=GPU🌡
+label=<span color="#80B1FF"><i>GPU </i></span>
+markup=pango
+#label=GPU🌡
 #command=gpuTempDisplay
 interval=10
 
@@ -137,12 +131,49 @@ interval=10
 
 # Date Time
 #
-[time]
-#label=Time:
-label=📅
-command=date '+%Y-%m-%d %H:%M:%S'
-interval=5
+#[time]
+##label=Time:
+#label=📅
+#command=date '+%Y-%m-%d %H:%M:%S'
+#interval=5
 
+# Network interface monitoring
+#
+# If the instance is not specified, use the interface used for default route.
+# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+[iface]
+#instance=wlan0
+#label=Internet
+#label=📶
+color=#80B1FF
+interval=10
+#separator=false
+markup=pango
+
+# Volume indicator
+#
+# The first parameter sets the step (and units to display)
+# The second parameter overrides the mixer selection
+# See the script for details.
+[volume-pulseaudio]
+#label=VOL
+label=🔊
+#instance=Master
+#instance=PCM
+interval=once
+signal=1
+markup=pango
+
+[calendar]
+#command=$SCRIPT_DIR/calendar
+interval=5
+LABEL=📅 
+#command=date '+%Y-%m-%d %H:%M:%S'
+DATEFMT=+%a %d.%m.%Y %H:%M:%S
+# SHORTFMT=+%H:%M:%S
+HEIGHT=180
+WIDTH=220
+markup=pango
 
 # OpenVPN support
 #

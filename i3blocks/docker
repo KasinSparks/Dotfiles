@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Number of docker containers running
+count=0
+count=$(docker ps -q | wc -l | sed -r 's/^0$//g')
+
+if [ $count -gt 0 ] 2> /dev/null; then
+	# Recent docker container IP
+	recent_ip=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" $(docker ps -ql))
+
+	#echo "$LABEL$count: $recent_ip"
+	echo "$LABEL"
+fi

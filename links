@@ -7,6 +7,11 @@ iface ./i3blocks/ ~/.config/i3blocks/scripts/
 temperature ./i3blocks/ ~/.config/i3blocks/scripts/
 time ./i3blocks/ ~/.config/i3blocks/scripts/
 volume-pulseaudio ./i3blocks/ ~/.config/i3blocks/scripts/
+disk ./i3blocks/ ~/.config/i3blocks/scripts/
+calendar ./i3blocks/ ~/.config/i3blocks/scripts/
+cpu_usage ./i3blocks/ ~/.config/i3blocks/scripts/
+memory ./i3blocks/ ~/.config/i3blocks/scripts/
+docker ./i3blocks/ ~/.config/i3blocks/scripts/
 .zshrc ./zsh/ ~/
 .vimrc ./ ~/
 .Xdefaults ./ ~/

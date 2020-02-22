@@ -15,6 +15,7 @@ AUDIO_MUTED_SYMBOL=${AUDIO_MUTED_SYMBOL:-'  '}
 
 AUDIO_DELTA=${AUDIO_DELTA:-5}
 
+MY_COLOR=${MY_COLOR:-"#80b1ff"}
 DEFAULT_COLOR=${DEFAULT_COLOR:-"#ffffff"}
 MUTED_COLOR=${MUTED_COLOR:-"#a0a0a0"}
 
@@ -117,6 +118,7 @@ esac
 
 function print_format {
     echo "$1" | envsubst '${SYMB}${VOL}${INDEX}${NAME}'
+    #echo "$1" | envsubst '$<span color=\"0000ff\">${SYMB}${VOL}</span><span color=\"00ff00\">${INDEX}${NAME}</span>'
 }
 
 function print_block {
@@ -163,9 +165,12 @@ sed 's/.*= "\(.*\)".*/\1/')
     if [[ $SUBSCRIBE == 1 ]] ; then
         print_format "$LONG_FORMAT"
     else
-        print_format "$LONG_FORMAT"
-        print_format "$SHORT_FORMAT"
-        echo "$COLOR"
+       	#print_format "$LONG_FORMAT"
+       	#print_format "$SHORT_FORMAT"
+    	echo -e "<span color=\"$MY_COLOR\"><i>[$INDEX:$NAME]</i></span><span color=\"$COLOR\"> $VOL%</span>"
+    	#echo -e "$<span color=\"$COLOR\"{SYMB}${VOL}</span><span color=\"$MY_COLOR\"${INDEX}${NAME}</span>"
+		#echo -e "<span color=\"#ff0000\">test</span><span color=\"#00ff00\">test2</span>"
+        #echo "$MY_COLOR"
     fi
 }
 
