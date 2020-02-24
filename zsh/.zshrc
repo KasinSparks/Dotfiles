@@ -250,6 +250,8 @@ if ! [[ ${ZSH_VERSION} == 3.1.<7->*      \
     function zstyle () { : }
 fi
 
+
+
 # autoload wrapper - use this one instead of autoload directly
 # We need to define this function as early as this, because autoloading
 # 'is-at-least()' needs it.
@@ -2283,6 +2285,12 @@ grml_theme_add_token: Token `%s'\'' exists! Giving up!\n\n' $name
     fi
 }
 
+
+function virtual_env_prompt () {
+    REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
+}
+grml_theme_add_token virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
+
 function grml_wrap_reply () {
     emulate -L zsh
     local target="$1"
@@ -2372,7 +2380,7 @@ function prompt_grml_precmd () {
     emulate -L zsh
     local grmltheme=grml
     local -a left_items right_items
-    left_items=(rc change-root user at host path vcs percent)
+    left_items=(rc virtual-env change-root user at host path vcs percent)
     right_items=(sad-smiley)
 
     prompt_grml_precmd_worker
@@ -3791,6 +3799,9 @@ if (( GRMLSMALL_SPECIFIC > 0 )) && isgrmlsmall ; then
         compdef _dig dig
     fi
 fi
+
+
+#zstyle ':prompt:grml:left:setup' items rc change-root path virtual-env vcs newline percent
 
 zrclocal
 
