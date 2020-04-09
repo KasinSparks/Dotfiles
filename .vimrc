@@ -16,6 +16,18 @@ Plugin 'ycm-core/YouCompleteMe'
 
 Plugin 'vim-latex/vim-latex'
 
+Plugin 'vim-syntastic/syntastic'
+
+Plugin 'scrooloose/nerdtree'
+
+"Plugin 'jnurmine/Zenburn'
+
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+Plugin 'dikiaap/minimalist'
+
+Plugin 'sheerun/vim-polyglot'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -49,9 +61,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-" Set the color scheme
-colorscheme ron
-
 " Set the linenumbers to true
 set number
 
@@ -67,3 +76,8 @@ set noexpandtab
 
 " Set syntax highlighting to on
 syntax on
+set t_Co=256
+" Set the color scheme
+colorscheme minimalist 
+
+highlight Pmenu ctermfg=2 ctermbg=8 guifg=#ffffff guibg=#0000ff
