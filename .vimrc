@@ -28,6 +28,8 @@ Plugin 'dikiaap/minimalist'
 
 Plugin 'sheerun/vim-polyglot'
 
+Plugin 'haya14busa/incsearch.vim'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -69,6 +71,8 @@ set tabstop=4
 set shiftwidth=4
 set noexpandtab
 
+set colorcolumn=80
+
 " Set the encoding type
 "set enc=utf-8
 "set fileencoding=utf-8
@@ -81,3 +85,7 @@ set t_Co=256
 colorscheme minimalist 
 
 highlight Pmenu ctermfg=2 ctermbg=8 guifg=#ffffff guibg=#0000ff
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
