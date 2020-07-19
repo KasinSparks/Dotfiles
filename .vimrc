@@ -20,6 +20,8 @@ Plugin 'vim-syntastic/syntastic'
 
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'rdnetto/YCM-Generator'
+
 "Plugin 'jnurmine/Zenburn'
 
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -71,7 +73,7 @@ set tabstop=4
 set shiftwidth=4
 set noexpandtab
 
-set colorcolumn=80
+set colorcolumn=100
 
 " Set the encoding type
 "set enc=utf-8
@@ -89,3 +91,6 @@ highlight Pmenu ctermfg=2 ctermbg=8 guifg=#ffffff guibg=#0000ff
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+" Enable mouse support
+set mouse=a

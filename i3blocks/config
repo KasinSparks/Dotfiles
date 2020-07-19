@@ -41,7 +41,7 @@ markup=none
 
 [docker]
 #color=#0db7ed
-color=#80B1FF
+color=#FFAF7A
 interval=30
 LABEL=🐳 
 
@@ -52,7 +52,7 @@ LABEL=🐳
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=<span color="#80B1FF"><i>HOME </i></span>
+label=<span color="#FFAF7A"><i>HOME </i></span>
 markup=pango
 #instance=/
 interval=30
@@ -63,7 +63,7 @@ separator=false
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=<span color="#80b1ff"><i>MEM</i></span>
+label=<span color="#FFAF7A"><i>MEM</i></span>
 separator=false
 interval=30
 markup=pango
@@ -105,13 +105,13 @@ markup=pango
 # see the script for details.
 [temperature]
 #label=CPU🌡
-label=<span color="#80B1FF"><i>CPU </i></span>
+label=<span color="#FFAF7A"><i>CPU </i></span>
 markup=pango
 interval=10
 separator=false
 
 [gpuTempDisplay]
-label=<span color="#80B1FF"><i>GPU </i></span>
+label=<span color="#FFAF7A"><i>GPU </i></span>
 markup=pango
 #label=GPU🌡
 #command=gpuTempDisplay
@@ -145,7 +145,7 @@ interval=10
 #instance=wlan0
 #label=Internet
 #label=📶
-color=#80B1FF
+color=#FFAF7A
 interval=10
 #separator=false
 markup=pango
